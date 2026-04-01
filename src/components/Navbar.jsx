@@ -82,12 +82,14 @@ export default function Navbar() {
           })}
           <li>
             <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body text-sm border border-accent/60 text-accent px-5 py-2 rounded hover:bg-accent hover:text-white hover:border-accent transition-all duration-200"
+              href="/Evan-Simons-2025-updated.pdf"
+              download="Evan-Simons-Resume.pdf"
+              className="font-body text-sm border border-accent/60 text-accent px-5 py-2 rounded hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 inline-flex items-center gap-1.5"
             >
-              Resume ↗
+              Resume
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+              </svg>
             </a>
           </li>
         </ul>
@@ -122,12 +124,14 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-sm border border-accent/60 text-accent px-5 py-2.5 rounded text-center hover:bg-accent hover:text-white transition-all duration-200 mt-2"
+            href="/Evan-Simons-2025-updated.pdf"
+            download="Evan-Simons-Resume.pdf"
+            className="font-body text-sm border border-accent/60 text-accent px-5 py-2.5 rounded text-center hover:bg-accent hover:text-white transition-all duration-200 mt-2 inline-flex items-center justify-center gap-1.5"
           >
-            Resume ↗
+            Resume
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg>
           </a>
         </div>
       </div>

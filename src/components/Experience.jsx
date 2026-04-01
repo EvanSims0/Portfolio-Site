@@ -1,6 +1,38 @@
 import { useEffect, useRef, useState } from 'react'
 import { SectionHeader } from './About'
 
+function MonitorIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
+    </svg>
+  )
+}
+
+function SparkleIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+    </svg>
+  )
+}
+
+function UsersIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+    </svg>
+  )
+}
+
+function AcademicCapIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+    </svg>
+  )
+}
+
 const EXPERIENCE = [
   {
     type:    'work',
@@ -13,7 +45,7 @@ const EXPERIENCE = [
       'Provided technical guidance and troubleshooting support to faculty, staff, and students.',
       'Managed hardware inventory tracking using custom-built tooling.',
     ],
-    icon: '💻',
+    icon: <MonitorIcon />,
   },
   {
     type:    'leadership',
@@ -25,7 +57,7 @@ const EXPERIENCE = [
       'Co-organize workshops and demos exploring AI tools and applications for students.',
       'Help grow membership by creating accessible onboarding materials for non-CS majors.',
     ],
-    icon: '🤖',
+    icon: <SparkleIcon />,
   },
   {
     type:    'leadership',
@@ -37,7 +69,7 @@ const EXPERIENCE = [
       'Coordinate with Deaf community partners for club events and cultural presentations.',
       'Helped increase membership by 40% through targeted outreach and event programming.',
     ],
-    icon: '🤟',
+    icon: <UsersIcon />,
   },
   {
     type:    'leadership',
@@ -49,13 +81,13 @@ const EXPERIENCE = [
       'Collaborate with faculty to improve course offerings and student resources.',
       'Organize department-wide networking events and career development workshops.',
     ],
-    icon: '🎓',
+    icon: <AcademicCapIcon />,
   },
 ]
 
 const TYPE_STYLE = {
-  work:       { border: 'border-accent/30',   dot: 'bg-accent',   label: 'Work Experience' },
-  leadership: { border: 'border-surface/30',  dot: 'bg-surface',  label: 'Leadership'      },
+  work:       { border: 'border-accent/30',  dot: 'bg-accent',  label: 'Work Experience' },
+  leadership: { border: 'border-surface/30', dot: 'bg-surface', label: 'Leadership'      },
 }
 
 export default function Experience() {
@@ -75,7 +107,6 @@ export default function Experience() {
     <section id="experience" className="relative py-32 px-6" ref={ref}>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-surface/20 to-transparent" />
 
-      {/* Left-side glow */}
       <div
         aria-hidden
         className="absolute top-1/2 left-0 -z-10 w-[400px] h-[600px] pointer-events-none"
@@ -100,7 +131,6 @@ export default function Experience() {
 
         {/* Timeline */}
         <div className="mt-12 relative">
-          {/* Vertical line */}
           <div
             className={`absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-accent/40 via-surface/20 to-transparent transition-all duration-1000 ${
               visible ? 'opacity-100' : 'opacity-0'
@@ -145,7 +175,7 @@ function TimelineItem({ item, index, visible }) {
         >
           {/* Icon badge */}
           <span
-            className="text-xl mt-0.5 w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+            className="mt-0.5 w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-text-muted"
             style={{ background: 'rgba(93,115,126,0.12)' }}
           >
             {icon}
@@ -161,7 +191,6 @@ function TimelineItem({ item, index, visible }) {
                 <span className="font-body text-xs text-surface border border-surface/20 rounded-full px-3 py-1">
                   {period}
                 </span>
-                {/* Chevron */}
                 <svg
                   className={`w-4 h-4 text-surface transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
                   fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}

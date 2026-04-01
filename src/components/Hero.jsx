@@ -63,7 +63,7 @@ export default function Hero() {
 
       {/* Eyebrow label */}
       <p className="animate-fade-up font-body text-xs tracking-[0.3em] uppercase text-accent mb-5">
-        Portfolio — 2025
+        Portfolio
       </p>
 
       {/* Main headline */}
@@ -92,13 +92,10 @@ export default function Hero() {
       </div>
 
       {/* Body copy */}
-      <p className="animate-fade-up delay-600 font-body text-base sm:text-lg text-text-muted max-w-lg mb-10 leading-relaxed">
-        Building robust solutions with{' '}
-        <Chip>Python</Chip>,{' '}
-        <Chip>Java</Chip>, and{' '}
-        <Chip>C++</Chip>.
-        {' '}CS student at John Brown University with a passion for clean architecture
-        and real-world impact.
+      <p className="animate-fade-up delay-600 font-body text-base sm:text-lg text-text-muted max-w-xl mb-12 leading-loose">
+        CS student at John Brown University, minoring in International Business.
+        I write <Chip>Python</Chip>, <Chip>Java</Chip>, and <Chip>C++</Chip> — and I care more
+        about shipping something that actually works than sounding impressive about it.
       </p>
 
       {/* CTAs */}
@@ -117,12 +114,11 @@ export default function Hero() {
           </svg>
         </a>
         <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/Evan-Simons-2025-updated.pdf"
+          download="Evan-Simons-Resume.pdf"
           className="inline-flex items-center gap-2 border border-surface/50 text-text-muted hover:border-accent hover:text-accent font-body font-semibold text-sm px-8 py-4 rounded transition-all duration-200"
         >
-          Resume
+          Download Resume
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
           </svg>
@@ -138,9 +134,10 @@ export default function Hero() {
       {/* Stat pills */}
       <div className="animate-fade-up delay-700 flex flex-wrap gap-3 mt-12">
         {[
-          { label: 'Languages', value: '9+' },
-          { label: 'University', value: 'JBU' },
+          { label: 'Languages',  value: '9+'             },
+          { label: 'University', value: 'JBU'            },
           { label: 'Minor',      value: 'Int\'l Business' },
+          { label: 'Degree',     value: 'Computer Sci - BA' },
         ].map(({ label, value }) => (
           <div
             key={label}

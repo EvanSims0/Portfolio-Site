@@ -1,21 +1,63 @@
 import { useEffect, useRef, useState } from 'react'
 
 const TECH_STACK = [
-  { name: 'Python',     category: 'language', icon: '🐍' },
-  { name: 'Java',       category: 'language', icon: '☕' },
-  { name: 'C++',        category: 'language', icon: '⚙️' },
-  { name: 'C#',         category: 'language', icon: '🔷' },
-  { name: 'JavaScript', category: 'language', icon: '⚡' },
-  { name: 'PHP',        category: 'language', icon: '🐘' },
-  { name: 'SQL',        category: 'database', icon: '🗄️' },
-  { name: 'React',      category: 'framework', icon: '⚛️' },
-  { name: 'CSS',        category: 'framework', icon: '🎨' },
+  { name: 'Python',      category: 'language'  },
+  { name: 'Java',        category: 'language'  },
+  { name: 'JavaScript',  category: 'language'  },
+  { name: 'Dart',        category: 'language'  },
+  { name: 'Swift',       category: 'language'  },
+  { name: 'Objective-C', category: 'language'  },
+  { name: 'C++',         category: 'language'  },
+  { name: 'C#',          category: 'language'  },
+  { name: 'PHP',         category: 'language'  },
+  { name: 'SQL',         category: 'database'  },
+  { name: 'React',       category: 'framework' },
+  { name: 'Flutter',     category: 'framework' },
+  { name: 'Tailwind CSS',category: 'framework' },
+  { name: 'CSS',         category: 'framework' },
 ]
+
+const MONOGRAMS = {
+  Python: 'PY', Java: 'JV', 'C++': 'C++', 'C#': 'C#',
+  JavaScript: 'JS', PHP: 'PHP', CSS: 'CSS',
+  Dart: 'DT', Swift: 'SW', 'Objective-C': 'ObjC',
+  Flutter: 'FL', 'Tailwind CSS': 'TW',
+}
 
 const CATEGORY_COLOR = {
   language:  'border-accent/30 text-text bg-accent/5',
   database:  'border-surface/40 text-text bg-surface/10',
   framework: 'border-teal-600/30 text-text bg-teal-900/10',
+}
+
+function ReactAtomIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function DatabaseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <ellipse cx="12" cy="6.5" rx="8" ry="2.5" />
+      <path strokeLinecap="round" d="M4 6.5v4c0 1.38 3.582 2.5 8 2.5s8-1.12 8-2.5v-4" />
+      <path strokeLinecap="round" d="M4 10.5v4c0 1.38 3.582 2.5 8 2.5s8-1.12 8-2.5v-4" />
+    </svg>
+  )
+}
+
+function TechIcon({ name }) {
+  if (name === 'React') return <ReactAtomIcon />
+  if (name === 'SQL') return <DatabaseIcon />
+  const mono = MONOGRAMS[name] || name.slice(0, 3).toUpperCase()
+  return (
+    <span className="font-mono font-bold tracking-tight text-sm leading-none">{mono}</span>
+  )
 }
 
 export default function About() {
@@ -33,14 +75,11 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-32 px-6" ref={ref}>
-      {/* Subtle section divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-surface/20 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
-        {/* Section header */}
         <SectionHeader label="01 — About" title="Who I Am" visible={visible} />
 
-        {/* Two-column layout */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* Left: bio */}
@@ -48,31 +87,32 @@ export default function About() {
             className={`transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
             style={{ transitionDelay: '0.2s' }}
           >
-            <div className="space-y-5 font-body text-text-muted leading-relaxed text-[1.05rem]">
+            <div className="space-y-6 font-body text-text-muted leading-loose text-[1.05rem]">
               <p>
-                I'm a <span className="text-text font-medium">Computer Science student at John Brown University</span> with
-                a minor in International Business — a combination that lets me build technically
-                sound solutions while understanding the broader business context they operate in.
+                CS major at <span className="text-text font-medium">John Brown University</span>, with a minor in
+                International Business. The combination sounds odd until it doesn't — a lot of real software
+                problems are business problems in disguise.
               </p>
               <p>
-                My core strength lies in writing clean, maintainable code across multiple paradigms.
-                Whether it's a Python data pipeline, a Java backend system, or a low-level C++ algorithm,
-                I care deeply about <span className="text-text font-medium">correctness, performance, and readability</span>.
+                I've shipped code in Python, Java, C++, C#, JavaScript, and PHP across projects ranging
+                from WordPress plugins to mobile apps to an independent film. I care about writing code
+                that's <span className="text-text font-medium">readable six months later</span>, not just
+                code that runs today.
               </p>
               <p>
-                Outside the classroom I've applied that mindset professionally — from rebuilding IT workflows
-                at JBU's Help Desk to leading student organizations focused on AI and community.
-                I'm driven by the idea that the best software is invisible: it just works.
+                Outside class, I work at JBU's IT Help Desk — where I've learned more about how systems
+                actually fail than any lecture has. I also handle finances for the AI Club and ASL Club,
+                and sit on the CS Department's student leadership board.
               </p>
             </div>
 
             {/* Quick facts */}
-            <div className="mt-8 grid grid-cols-2 gap-4">
+            <div className="mt-10 grid grid-cols-2 gap-4">
               {[
-                { label: 'University',    value: 'John Brown University' },
-                { label: 'Degree',        value: 'Computer Science' },
-                { label: 'Minor',         value: 'International Business' },
-                { label: 'Status',        value: 'Open to Opportunities' },
+                { label: 'University', value: 'John Brown University' },
+                { label: 'Degree',     value: 'Computer Science' },
+                { label: 'Minor',      value: 'International Business' },
+                { label: 'Status',     value: 'Open to Opportunities' },
               ].map(({ label, value }) => (
                 <div key={label} className="border border-surface/15 rounded-lg p-4 bg-surface-dim/30">
                   <p className="font-body text-xs text-surface tracking-widest uppercase mb-1">{label}</p>
@@ -99,7 +139,9 @@ export default function About() {
                     opacity: visible ? undefined : 0,
                   }}
                 >
-                  <div className="text-2xl mb-2">{tech.icon}</div>
+                  <div className="h-7 flex items-center justify-center mb-2.5">
+                    <TechIcon name={tech.name} />
+                  </div>
                   <p className="font-body text-xs font-semibold tracking-wide">{tech.name}</p>
                   <p className="font-body text-[10px] text-surface/70 mt-0.5 capitalize">{tech.category}</p>
                 </div>
